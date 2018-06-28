@@ -145,9 +145,9 @@ class MyApp extends LitElement {
         text-align: center;
       }
 
-      /* Wide layout: when the viewport width is bigger than 620px, layout
+      /* Wide layout: when the viewport width is bigger than 790px, layout
       changes to a wide layout. */
-      @media (min-width: 620px) {
+      @media (min-width: 790px) {
         .toolbar-list {
           display: block;
         }
@@ -177,11 +177,11 @@ class MyApp extends LitElement {
 
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
-        <a selected?="${_page === 'view1'}" href="/view1">View One</a>
-        <a selected?="${_page === 'view2'}" href="/view2">View Two</a>
-        <a selected?="${_page === 'view3'}" href="/view3">View Three</a>
-        <a selected?="${_page === 'view4'}" href="/view4">View Four</a>
-        <a selected?="${_page === 'view5'}" href="/view5">View Five</a>
+        <a selected?="${_page === 'view1'}" href="/view1">A EMPRESA</a>
+        <a selected?="${_page === 'view2'}" href="/view2">ESPECIALIDADES</a>
+        <a selected?="${_page === 'view3'}" href="/view3">DIFERENCIAIS</a>
+        <a selected?="${_page === 'view4'}" href="/view4">VALORES</a>
+        <a selected?="${_page === 'view5'}" href="/view5">CONTATO</a>
       </nav>
     </app-header>
 
@@ -189,11 +189,11 @@ class MyApp extends LitElement {
     <app-drawer opened="${_drawerOpened}"
         on-opened-changed="${e => this._updateDrawerState(e.target.opened)}">
       <nav class="drawer-list">
-        <a selected?="${_page === 'view1'}" href="/view1">View One</a>
-        <a selected?="${_page === 'view2'}" href="/view2">View Two</a>
-        <a selected?="${_page === 'view3'}" href="/view3">View Three</a>
-        <a selected?="${_page === 'view4'}" href="/view4">View Four</a>
-        <a selected?="${_page === 'view5'}" href="/view5">View Five</a>
+        <a selected?="${_page === 'view1'}" href="/view1">A EMPRESA</a>
+        <a selected?="${_page === 'view2'}" href="/view2">ESPECIALIDADES</a>
+        <a selected?="${_page === 'view3'}" href="/view3">DIFERENCIAIS</a>
+        <a selected?="${_page === 'view4'}" href="/view4">VALORES</a>
+        <a selected?="${_page === 'view5'}" href="/view5">CONTATO</a>
       </nav>
     </app-drawer>
 
@@ -237,7 +237,7 @@ class MyApp extends LitElement {
   _firstRendered() {
     installRouter((location) => this._locationChanged(location));
     installOfflineWatcher((offline) => this._offlineChanged(offline));
-    installMediaQueryWatcher(`(min-width: 460px)`,
+    installMediaQueryWatcher(`(min-width: 790px)`,
         (matches) => this._layoutChanged(matches));
   }
 
