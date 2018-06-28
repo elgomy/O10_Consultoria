@@ -145,9 +145,9 @@ class MyApp extends LitElement {
         text-align: center;
       }
 
-      /* Wide layout: when the viewport width is bigger than 460px, layout
+      /* Wide layout: when the viewport width is bigger than 620px, layout
       changes to a wide layout. */
-      @media (min-width: 460px) {
+      @media (min-width: 620px) {
         .toolbar-list {
           display: block;
         }
@@ -180,6 +180,8 @@ class MyApp extends LitElement {
         <a selected?="${_page === 'view1'}" href="/view1">View One</a>
         <a selected?="${_page === 'view2'}" href="/view2">View Two</a>
         <a selected?="${_page === 'view3'}" href="/view3">View Three</a>
+        <a selected?="${_page === 'view4'}" href="/view4">View Four</a>
+        <a selected?="${_page === 'view5'}" href="/view5">View Five</a>
       </nav>
     </app-header>
 
@@ -190,6 +192,8 @@ class MyApp extends LitElement {
         <a selected?="${_page === 'view1'}" href="/view1">View One</a>
         <a selected?="${_page === 'view2'}" href="/view2">View Two</a>
         <a selected?="${_page === 'view3'}" href="/view3">View Three</a>
+        <a selected?="${_page === 'view4'}" href="/view4">View Four</a>
+        <a selected?="${_page === 'view5'}" href="/view5">View Five</a>
       </nav>
     </app-drawer>
 
@@ -198,6 +202,8 @@ class MyApp extends LitElement {
       <my-view1 class="page" active?="${_page === 'view1'}"></my-view1>
       <my-view2 class="page" active?="${_page === 'view2'}"></my-view2>
       <my-view3 class="page" active?="${_page === 'view3'}"></my-view3>
+      <my-view4 class="page" active?="${_page === 'view4'}"></my-view4>
+      <my-view5 class="page" active?="${_page === 'view5'}"></my-view5>
       <my-view404 class="page" active?="${_page === 'view404'}"></my-view404>
     </main>
 
@@ -295,6 +301,12 @@ class MyApp extends LitElement {
         break;
       case 'view3':
         import('../components/my-view3.js');
+        break;
+      case 'view4':
+        import('../components/my-view4.js');
+        break;
+      case 'view5':
+        import('../components/my-view5.js');
         break;
       default:
         page = 'view404';
