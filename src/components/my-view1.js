@@ -26,10 +26,24 @@ class MyView1 extends PageViewElement {
             height: 500px;
             overflow: hidden;
         }
+
+        div p {
+            white-space: nowrap;
+            font-size: 30px;
+            color:white;
+            display: block;
+            position: absolute;           
+            top: 30%;
+            left: 25%;
+            padding: 5px;
+            width: 100%;
+        }
       </style>
 
       <div>
         <section-image class="image-bg" center alt="Home" src="images/montana-test.jpg" placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAAI0lEQVR4AWPw2v7Wfe1Dj7X3/Pd8YPDf+Uqva79x38GQvW8Bu0sOexptskUAAAAASUVORK5CYII="></section-image>
+        <p>GESTAO é fazer certas as coisas<br>
+          LIDERANÇA é fazer as coisas certas</p>
       </div>
         
        
