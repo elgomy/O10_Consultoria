@@ -145,6 +145,10 @@ class MyApp extends LitElement {
         text-align: center;
       }
 
+      app-drawer{
+        z-index: 3;
+      }
+
       /* Wide layout: when the viewport width is bigger than 790px, layout
       changes to a wide layout. */
       @media (min-width: 790px) {
@@ -208,7 +212,16 @@ class MyApp extends LitElement {
     </main>
 
     <footer>
-      <p>Made with &hearts; by the Polymer team.</p>
+      <p>
+         Nosso Endereço:<br>
+         Rua Desembargador Jorge Fontana, 428<br>
+         Edifício Belvedere Tower II - 11º Andar - Sala 1102 - Belvedere<br>
+         Belo Horizonte - 30320 670<br>
+         Minas Gerais | Brasil<br>
+         tlf: +55 31 3653 8089<br>
+         E-mail:<br>
+         copyright
+      </p>
     </footer>
 
     <snack-bar active?="${_snackbarOpened}">
