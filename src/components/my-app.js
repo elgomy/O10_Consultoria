@@ -71,6 +71,7 @@ class MyApp extends LitElement {
         drawer button, and the text looks not centered. Add a padding to
         match that button */
         padding-right: 44px;
+        margin-top:7px;
       }
 
       .toolbar-list {
@@ -176,7 +177,7 @@ class MyApp extends LitElement {
     <app-header condenses reveals effects="waterfall">
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" on-click="${_ => this._updateDrawerState(true)}">${menuIcon}</button>
-        <div main-title>${appTitle}</div>
+        <div main-title><img src="images/logo.jpg"></div>
       </app-toolbar>
 
       <!-- This gets hidden on a small screen-->
@@ -222,6 +223,7 @@ class MyApp extends LitElement {
          E-mail:<br>
          copyright
       </p>
+      credits: <div>Icons made by <a href="https://www.flaticon.com/authors/ddara" title="dDara">dDara</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     </footer>
 
     <snack-bar active?="${_snackbarOpened}">

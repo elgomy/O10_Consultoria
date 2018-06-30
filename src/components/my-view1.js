@@ -38,6 +38,15 @@ class MyView1 extends PageViewElement {
             padding: 5px;
             width: 100%;
         }
+
+        section h2:after{
+            display: block;
+            width: 60px;
+            height: 5px;
+            content: ' ';
+            background: #F38221;
+            margin: 20px 0;
+        }
       </style>
 
       <div>
