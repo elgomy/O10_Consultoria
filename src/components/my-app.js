@@ -18,10 +18,14 @@ import { updateMetadata } from 'pwa-helpers/metadata.js';
 // These are the elements needed by this element.
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header/app-header.js';
+import '@polymer/app-layout/app-header-layout/app-header-layout.js';
 import '@polymer/app-layout/app-scroll-effects/effects/waterfall.js';
+import '@polymer/app-layout/app-scroll-effects/effects/parallax-background.js';
+import '@polymer/app-layout/app-scroll-effects/effects/blend-background.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import { menuIcon } from './my-icons.js';
 import './snack-bar.js';
+
 
 class MyApp extends LitElement {
   _render({appTitle, _page, _drawerOpened, _snackbarOpened, _offline}) {
@@ -40,8 +44,8 @@ class MyApp extends LitElement {
         --app-section-odd-color: white;
 
         --app-header-background-color: white;
-        --app-header-text-color: var(--app-dark-text-color);
-        --app-header-selected-color: var(--app-primary-color);
+        --app-header-text-color: #F38221;
+        --app-header-selected-color: #ff3d00;
 
         --app-drawer-background-color: var(--app-secondary-color);
         --app-drawer-text-color: var(--app-light-text-color);
@@ -54,9 +58,18 @@ class MyApp extends LitElement {
         left: 0;
         width: 100%;
         text-align: center;
-        background-color: var(--app-header-background-color);
+        
         color: var(--app-header-text-color);
         border-bottom: 1px solid #eee;
+        z-index:2;
+            --app-header-background-front-layer: {
+              background-image: url(images/triangles.png);
+              background-position: 50% 10%;
+          };
+          --app-header-background-rear-layer: {
+              /* The header is blue when condensed */
+               background-color: orange;
+          };
       }
 
       .toolbar-top {
@@ -64,14 +77,18 @@ class MyApp extends LitElement {
       }
 
       [main-title] {
-        font-family: 'Pacifico';
-        text-transform: lowercase;
-        font-size: 30px;
+        
+        text-transform: uppercase;
+      
+        font-size: .7rem;
         /* In the narrow layout, the toolbar is offset by the width of the
         drawer button, and the text looks not centered. Add a padding to
         match that button */
-        padding-right: 44px;
+        font-weight:bold;
         margin-top:7px;
+        
+
+
       }
 
       .toolbar-list {
@@ -84,6 +101,8 @@ class MyApp extends LitElement {
         text-decoration: none;
         line-height: 30px;
         padding: 4px 24px;
+        font-size: .8rem;
+        font-weight: bold;
       }
 
       .toolbar-list > a[selected] {
@@ -121,6 +140,8 @@ class MyApp extends LitElement {
         color: var(--app-drawer-selected-color);
       }
 
+
+
       /* Workaround for IE11 displaying <main> as inline */
       main {
         display: block;
@@ -150,11 +171,17 @@ class MyApp extends LitElement {
         z-index: 3;
       }
 
-      /* Wide layout: when the viewport width is bigger than 790px, layout
+
+
+      /* Wide layout: when the viewport width is bigger than 950px, layout
       changes to a wide layout. */
-      @media (min-width: 790px) {
+      @media (min-width: 950px) {
         .toolbar-list {
           display: block;
+        }
+
+        .toolbar-list > a:hover{
+          color:#ff3d00;
         }
 
         .menu-btn {
@@ -162,33 +189,57 @@ class MyApp extends LitElement {
         }
 
         .main-content {
-          padding-top: 107px;
+          padding-top: 70px;
         }
 
         /* The drawer button isn't shown in the wide layout, so we don't
         need to offset the title */
         [main-title] {
           padding-right: 0px;
+          margin-left: 0px;
+         
+          
         }
+
+        app-header {
+          --app-header-background-front-layer: {
+              background-image: url(images/triangles.png);
+              background-position: 50% 10%;
+          };
+          --app-header-background-rear-layer: {
+              /* The header is blue when condensed */
+               background-color: orange;
+          };
+        }
+
+        
+
+      
       }
     </style>
 
     <!-- Header -->
-    <app-header condenses reveals effects="waterfall">
+
+  <app-header-layout>
+
+    <app-header style="height: 400px;" effects="blend-background" condenses fixed shadow slot="header">
+
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" on-click="${_ => this._updateDrawerState(true)}">${menuIcon}</button>
-        <div main-title><img src="images/logo.jpg"></div>
-      </app-toolbar>
+        <div main-title><img src="images/logo.jpg"><span>serviços e consultoria</span></div>
 
-      <!-- This gets hidden on a small screen-->
-      <nav class="toolbar-list">
+        <nav class="toolbar-list">
         <a selected?="${_page === 'view1'}" href="/view1">A EMPRESA</a>
         <a selected?="${_page === 'view2'}" href="/view2">ESPECIALIDADES</a>
         <a selected?="${_page === 'view3'}" href="/view3">DIFERENCIAIS</a>
         <a selected?="${_page === 'view4'}" href="/view4">VALORES</a>
-        <a selected?="${_page === 'view5'}" href="/view5">CONTATO</a>
-      </nav>
+        <a selected?="${_page === 'view5'}" href="/view5">CONTATO</a> 
+      </nav> 
+      </app-toolbar>
+
     </app-header>
+
+  </app-header-layout>
 
     <!-- Drawer content -->
     <app-drawer opened="${_drawerOpened}"
@@ -252,7 +303,7 @@ class MyApp extends LitElement {
   _firstRendered() {
     installRouter((location) => this._locationChanged(location));
     installOfflineWatcher((offline) => this._offlineChanged(offline));
-    installMediaQueryWatcher(`(min-width: 790px)`,
+    installMediaQueryWatcher(`(min-width: 950px)`,
         (matches) => this._layoutChanged(matches));
   }
 

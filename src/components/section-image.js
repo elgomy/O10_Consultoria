@@ -10,7 +10,7 @@
 
 import { LitElement, html } from '@polymer/lit-element';
 
-export class SectionImage extends LitElement {
+class SectionImage extends LitElement {
   _render({ alt, placeholder, src, _loaded }) {
     return html`
     <style>
