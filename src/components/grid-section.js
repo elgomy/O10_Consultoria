@@ -1,4 +1,9 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import { LitElement, html } from '@polymer/lit-element';
+import { scheme, pieChart, organ, lineGraph, dolar } from './my-icons.js';
+import '@polymer/iron-flex-layout/iron-flex-layout.js';
+
+// These are the shared styles needed by this element.
+import { SharedStyles } from './shared-styles.js';
 
 /**
  * `basic-element`
@@ -8,21 +13,85 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  * @polymer
  * @demo demo/index.html
  */
-class GridSection extends PolymerElement {
-  static get template() {
+class GridSection extends LitElement {
+  _render({prop1}){
     return html`
+      ${SharedStyles}
       <style>
         :host {
           display: block;
         }
+        
+        
+        @media (min-width: 950px) {
+
+          .grid{
+            display: grid;
+            grid-template-columns: [leftCol] 2fr [rightCol] 2fr;
+            grid-template-rows: [topRow] 12rem [botRow] 12rem;
+            
+          }
+          .top-left__section{
+            grid-column: leftCol;
+            grid-row: topRow;
+          }
+
+          .top_right__section{
+            grid-column: rightCol;
+            grid-row: topRow;
+          }
+
+          .bottom-left__section{
+            grid-column: leftCol;
+            grid-row: botRow;
+          }
+
+          .bottom-right__section{
+            grid-column: rightCol;
+            grid-row: botRow;
+          }
+        }
+
+        .card-title{
+          
+          @apply --layout-horizontal;
+        }
+
       </style>
-      <div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell">hola</div>
-    <div class="mdc-layout-grid__cell">caracola</div>
-    <div class="mdc-layout-grid__cell">melon</div>
-  </div>
-</div>
+
+      <div class="grid">      
+        <div class="top-left__section, card">  
+          <div class="card-title">     
+            ${lineGraph}<h4>Assessoria Financeira</h4>
+          </div> 
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minus impedit praesentium           
+        </div>
+
+        <div class="top_right__section, card">
+          <div class="card-title"> 
+            ${organ}<h4>M&A</h4>
+          
+          </div>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minus impedit praesentium 
+         
+        </div>
+        <div class="bottom-left__section, card">
+          <div class="card-title"> 
+            ${scheme}<h4>Alianças Estratégicas</h4>
+       
+          </div>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minus impedit praesentium 
+         
+        </div>
+        <div class="bottom-right__section, card">
+          <div class="card-title"> 
+            ${dolar}<h4>Captaçao de Recursos</h4>
+         
+          </div>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minus impedit praesentium 
+         
+        </div>
+     </div>
     `;
   }
   static get properties() {

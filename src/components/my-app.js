@@ -26,6 +26,8 @@ import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import { menuIcon } from './my-icons.js';
 import './snack-bar.js';
 
+import '@polymer/iron-flex-layout/iron-flex-layout.js';
+
 
 class MyApp extends LitElement {
   _render({appTitle, _page, _drawerOpened, _snackbarOpened, _offline}) {
@@ -74,6 +76,7 @@ class MyApp extends LitElement {
 
       .toolbar-top {
         background-color: var(--app-header-background-color);
+        height: 90px;
       }
 
       [main-title] {
@@ -87,6 +90,7 @@ class MyApp extends LitElement {
         font-weight:bold;
         margin-top:7px;
         
+        @apply --layout-vertical;
 
 
       }
@@ -164,7 +168,7 @@ class MyApp extends LitElement {
         padding: 24px;
         background: var(--app-drawer-background-color);
         color: var(--app-drawer-text-color);
-        text-align: center;
+        
       }
 
       app-drawer{
@@ -197,7 +201,7 @@ class MyApp extends LitElement {
         [main-title] {
           padding-right: 0px;
           margin-left: 0px;
-         
+          
           
         }
 
@@ -226,7 +230,13 @@ class MyApp extends LitElement {
 
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" on-click="${_ => this._updateDrawerState(true)}">${menuIcon}</button>
-        <div main-title><img src="images/logo.jpg"><span>serviços e consultoria</span></div>
+
+        <div main-title>
+          <div>
+            <img src="images/logo.jpg">
+          </div>
+          <span>serviços e consultoria</span>
+        </div>
 
         <nav class="toolbar-list">
         <a selected?="${_page === 'view1'}" href="/view1">A EMPRESA</a>
@@ -274,7 +284,7 @@ class MyApp extends LitElement {
          E-mail:<br>
          copyright
       </p>
-      credits: <div>Icons made by <a href="https://www.flaticon.com/authors/ddara" title="dDara">dDara</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+      
     </footer>
 
     <snack-bar active?="${_snackbarOpened}">
