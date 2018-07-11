@@ -23,9 +23,18 @@ export const SharedStyles = html`
   }
 
   section > * {
-    max-width: 700px;
+    max-width: 800px;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  section h2:after {
+            display: block;
+            width: 60px;
+            height: 5px;
+            content: ' ';
+            background: #F38221;
+            margin: 20px 0;
   }
 
   section:nth-of-type(even) {
