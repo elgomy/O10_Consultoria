@@ -76,7 +76,7 @@ class MyApp extends LitElement {
 
       .toolbar-top {
         background-color: var(--app-header-background-color);
-        height: 90px;
+        height: 100px;
       }
 
       [main-title] {
@@ -226,14 +226,14 @@ class MyApp extends LitElement {
 
   <app-header-layout>
 
-    <app-header style="height: 400px;" effects="blend-background" condenses fixed shadow slot="header">
+    <app-header style="height: 350px;" effects="blend-background" condenses fixed shadow slot="header">
 
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" on-click="${_ => this._updateDrawerState(true)}">${menuIcon}</button>
 
         <div main-title>
           <div>
-            <img src="images/logo.jpg">
+            <img src="images/logo2.jpg">
           </div>
           <span>serviços e consultoria</span>
         </div>

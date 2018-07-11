@@ -31,7 +31,7 @@ class ScrollButton extends PolymerElement {
 		}
 
 		.mdc-fab{
-      		--mdc-theme-secondary:#F38221
+      		--mdc-theme-secondary:#F38221;
       	}
 
       </style>

@@ -73,8 +73,14 @@ class MyView1 extends PageViewElement {
          .light {
       --mdc-theme-on-primary: white;
       --mdc-theme-primary: black;
-    
-    }
+      border:1px solid white;      
+      }
+
+      .light:hover{
+         --mdc-theme-on-primary: #F38221;
+      --mdc-theme-primary: white;
+      border:1px solid black;
+      }
       </style>
       <!--
       <div>
