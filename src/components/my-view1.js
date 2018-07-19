@@ -56,53 +56,53 @@ class MyView1 extends PageViewElement {
 
         .contact-section{
           @apply --layout-horizontal;
-          background: rgb(2,0,36);
-          background: -webkit-linear-gradient(left, rgba(2,0,36,1) 0%, rgba(230,114,30,1) 0%, rgba(231,87,28,1) 50%, rgba(207,157,55,1) 100%, rgba(199,181,65,1) 100%, rgba(255,0,86,1) 100%, rgba(113,121,9,1) 100%);
-          background: -o-linear-gradient(left, rgba(2,0,36,1) 0%, rgba(230,114,30,1) 0%, rgba(231,87,28,1) 50%, rgba(207,157,55,1) 100%, rgba(199,181,65,1) 100%, rgba(255,0,86,1) 100%, rgba(113,121,9,1) 100%);
-          background: linear-gradient(to right, rgba(2,0,36,1) 0%, rgba(230,114,30,1) 0%, rgba(231,87,28,1) 50%, rgba(207,157,55,1) 100%, rgba(199,181,65,1) 100%, rgba(255,0,86,1) 100%, rgba(113,121,9,1) 100%);
         }
 
-        .contact-button{
-          
+
+        .light {
+          --mdc-theme-on-primary: white;
+          --mdc-theme-primary: #F38221;
+          border:1px solid white;      
         }
 
-        .scroll-button{
-          
+        .light:hover{
+          --mdc-theme-on-primary: black;
+          --mdc-theme-primary: black;
+          border:1px solid black;
         }
 
-         .light {
-      --mdc-theme-on-primary: white;
-      --mdc-theme-primary: black;
-      border:1px solid white;      
-      }
+        mwc-button > a{
+          text-decoration:none;
+          color:white;
+          font-weight:bold;
+        }
 
-      .light:hover{
-         --mdc-theme-on-primary: #F38221;
-      --mdc-theme-primary: white;
-      border:1px solid black;
-      }
+        mwc-button > a:hover{
+          text-decoration:none;
+          color:#F38221;
+          font-weight:bold;
+        }
+
+        p > span{
+          font-weight:bold;
+        }
+
       </style>
-      <!--
-      <div>
-        <section-image class="image-bg" center alt="Home" src="images/montana-test.jpg" placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAAI0lEQVR4AWPw2v7Wfe1Dj7X3/Pd8YPDf+Uqva79x38GQvW8Bu0sOexptskUAAAAASUVORK5CYII="></section-image>
-        <p>GESTAO é fazer certas as coisas<br>
-          LIDERANÇA é fazer as coisas certas</p>
-      </div> -->
-        
-
        
       <section>
         <h2>Sobre Nós</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nisi orci. Maecenas sollicitudin diam in diam efficitur cursus. Morbi sollicitudin in justo tincidunt placerat. Integer tincidunt elementum nisi, eu ornare dolor lacinia eget. Fusce pulvinar massa eget odio placerat, commodo molestie ipsum tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse porttitor id purus eu cursus. Suspendisse arcu nulla,</p>
+        <p>Fundada em 2008 e sediada em Belo Horizonte, somos a O10 Serviços e Consultoria, empresa que possui atuação em assessoria financeira para fusões, 
+        aquisições e captação de recursos de terceiros, apoiando <span>Pessoas</span> a expandir os seus negócios e <span>Empresas</span> a se consolidarem mercado. 
+        </p>
       </section>
-       <section>
+
+      <section>
         <grid-section></grid-section>
       </section>
+
       <section class="contact-section">
-        <mwc-button raised class="light">ENTRE EM CONTATO</mwc-button>
-      </section>
-   
-      <scroll-button></scroll-button>
+        <mwc-button raised class="light"><a href="/contato">ENTRE EM CONTATO</a></mwc-button>
+      </section>     
 
     `;
 

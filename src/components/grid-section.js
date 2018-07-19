@@ -57,6 +57,8 @@ class GridSection extends LitElement {
           @apply --layout-horizontal;
         }
 
+       
+
       </style>
 
       <div class="grid">      
@@ -64,7 +66,8 @@ class GridSection extends LitElement {
           <div class="card-title">     
             ${lineGraph}<h4>Assessoria Financeira</h4>
           </div> 
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minus impedit praesentium           
+           <p>Experiência na área financeira como profissionais de mercado e independência total.</p> 
+
         </div>
 
         <div class="top_right__section, card">
@@ -72,7 +75,8 @@ class GridSection extends LitElement {
             ${organ}<h4>M&A</h4>
           
           </div>
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minus impedit praesentium 
+           <p>Aquisições, fusões, reestruturações societárias, venda total ou parcial de empresas. 
+           </p>
          
         </div>
         <div class="bottom-left__section, card">
@@ -80,15 +84,17 @@ class GridSection extends LitElement {
             ${scheme}<h4>Alianças Estratégicas</h4>
        
           </div>
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minus impedit praesentium 
+           <p>Conectados com especialistas técnicos e com o mercado financeiro nacional e internacional.
+           </p>
          
         </div>
         <div class="bottom-right__section, card">
           <div class="card-title"> 
-            ${dolar}<h4>Captaçao de Recursos</h4>
+            ${dolar}<h4>Captação de Recursos</h4>
          
           </div>
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minus impedit praesentium 
+           <p>Junto a Instituições Nacionais e Internacionais, além de Fundos de Investimento.
+           </p> 
          
         </div>
      </div>

@@ -27,6 +27,7 @@ import { menuIcon } from './my-icons.js';
 import './snack-bar.js';
 
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
+import  './scroll-button.js';
 
 
 class MyApp extends LitElement {
@@ -51,7 +52,7 @@ class MyApp extends LitElement {
 
         --app-drawer-background-color: var(--app-secondary-color);
         --app-drawer-text-color: var(--app-light-text-color);
-        --app-drawer-selected-color: #78909C;
+        --app-drawer-selected-color: #F38221;
       }
 
       app-header {
@@ -64,11 +65,12 @@ class MyApp extends LitElement {
         color: var(--app-header-text-color);
         border-bottom: 1px solid #eee;
         z-index:2;
-            --app-header-background-front-layer: {
+
+        --app-header-background-front-layer: {
               background-image: url(images/triangles.png);
               background-position: 50% 10%;
           };
-          --app-header-background-rear-layer: {
+        --app-header-background-rear-layer: {
               /* The header is blue when condensed */
                background-color: orange;
           };
@@ -76,22 +78,22 @@ class MyApp extends LitElement {
 
       .toolbar-top {
         background-color: var(--app-header-background-color);
-        height: 100px;
+        height: 110px;
       }
 
       [main-title] {
         
         text-transform: uppercase;
       
-        font-size: .7rem;
+        font-size: .9rem;
         /* In the narrow layout, the toolbar is offset by the width of the
         drawer button, and the text looks not centered. Add a padding to
         match that button */
         font-weight:bold;
         margin-top:7px;
+        padding-right:30px;
         
         @apply --layout-vertical;
-
 
       }
 
@@ -144,8 +146,6 @@ class MyApp extends LitElement {
         color: var(--app-drawer-selected-color);
       }
 
-
-
       /* Workaround for IE11 displaying <main> as inline */
       main {
         display: block;
@@ -175,7 +175,21 @@ class MyApp extends LitElement {
         z-index: 3;
       }
 
+      .title {         
+        margin-top:90px;
+        margin-left:0;
+        text-align: left; 
+      } 
 
+      .title span { 
+        text-transform:uppercase;
+        color: white; 
+        font: bold 24px/45px Helvetica, Sans-Serif; 
+        letter-spacing: -1px;  
+        background: rgb(0, 0, 0); /* fallback color */
+        background: rgba(0, 0, 0, 1);
+        padding: 10px; 
+      }
 
       /* Wide layout: when the viewport width is bigger than 950px, layout
       changes to a wide layout. */
@@ -200,24 +214,8 @@ class MyApp extends LitElement {
         need to offset the title */
         [main-title] {
           padding-right: 0px;
-          margin-left: 0px;
-          
-          
-        }
-
-        app-header {
-          --app-header-background-front-layer: {
-              background-image: url(images/triangles.png);
-              background-position: 50% 10%;
-          };
-          --app-header-background-rear-layer: {
-              /* The header is blue when condensed */
-               background-color: orange;
-          };
-        }
-
-        
-
+          margin-left: 0px;              
+        }    
       
       }
     </style>
@@ -226,7 +224,7 @@ class MyApp extends LitElement {
 
   <app-header-layout>
 
-    <app-header style="height: 350px;" effects="blend-background" condenses fixed shadow slot="header">
+    <app-header style="height: 350px;" effects="blend-background" condenses shadow slot="header">
 
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" on-click="${_ => this._updateDrawerState(true)}">${menuIcon}</button>
@@ -236,40 +234,41 @@ class MyApp extends LitElement {
             <img src="images/logo2.jpg">
           </div>
           <span>serviços e consultoria</span>
+
         </div>
 
         <nav class="toolbar-list">
-        <a selected?="${_page === 'view1'}" href="/view1">A EMPRESA</a>
-        <a selected?="${_page === 'view2'}" href="/view2">ESPECIALIDADES</a>
-        <a selected?="${_page === 'view3'}" href="/view3">DIFERENCIAIS</a>
-        <a selected?="${_page === 'view4'}" href="/view4">VALORES</a>
-        <a selected?="${_page === 'view5'}" href="/view5">CONTATO</a> 
+        <a selected?="${_page === 'a empresa'}" href="/a empresa">A EMPRESA</a>
+        <a selected?="${_page === 'especialidades'}" href="/especialidades">ESPECIALIDADES</a>
+        <a selected?="${_page === 'diferenciais'}" href="/diferenciais">DIFERENCIAIS</a>
+        <a selected?="${_page === 'contato'}" href="/contato">CONTATO</a> 
       </nav> 
       </app-toolbar>
 
+         <div class="title"><span>${_page}</span></div>
+      
     </app-header>
+               
 
   </app-header-layout>
 
     <!-- Drawer content -->
-    <app-drawer opened="${_drawerOpened}"
+    <app-drawer no-focus-trap opened="${_drawerOpened}"
         on-opened-changed="${e => this._updateDrawerState(e.target.opened)}">
       <nav class="drawer-list">
-        <a selected?="${_page === 'view1'}" href="/view1">A EMPRESA</a>
-        <a selected?="${_page === 'view2'}" href="/view2">ESPECIALIDADES</a>
-        <a selected?="${_page === 'view3'}" href="/view3">DIFERENCIAIS</a>
-        <a selected?="${_page === 'view4'}" href="/view4">VALORES</a>
-        <a selected?="${_page === 'view5'}" href="/view5">CONTATO</a>
+        <a selected?="${_page === 'a empresa'}" href="/a empresa">A EMPRESA</a>
+        <a selected?="${_page === 'especialidades'}" href="/especialidades">ESPECIALIDADES</a>
+        <a selected?="${_page === 'diferenciais'}" href="/diferenciais">DIFERENCIAIS</a>
+        <a selected?="${_page === 'contato'}" href="/contato">CONTATO</a>
       </nav>
     </app-drawer>
 
     <!-- Main content -->
     <main role="main" class="main-content">
-      <my-view1 class="page" active?="${_page === 'view1'}"></my-view1>
-      <my-view2 class="page" active?="${_page === 'view2'}"></my-view2>
-      <my-view3 class="page" active?="${_page === 'view3'}"></my-view3>
-      <my-view4 class="page" active?="${_page === 'view4'}"></my-view4>
-      <my-view5 class="page" active?="${_page === 'view5'}"></my-view5>
+      <my-view1 class="page" active?="${_page === 'a empresa'}"></my-view1>
+      <my-view2 class="page" active?="${_page === 'especialidades'}"></my-view2>
+      <my-view3 class="page" active?="${_page === 'diferenciais'}"></my-view3>
+      <my-view5 class="page" active?="${_page === 'contato'}"></my-view5>
       <my-view404 class="page" active?="${_page === 'view404'}"></my-view404>
     </main>
 
@@ -286,6 +285,8 @@ class MyApp extends LitElement {
       </p>
       
     </footer>
+
+    <scroll-button></scroll-button>
 
     <snack-bar active?="${_snackbarOpened}">
         You are now ${_offline ? 'offline' : 'online'}.</snack-bar>
@@ -349,7 +350,7 @@ class MyApp extends LitElement {
 
   _locationChanged() {
     const path = window.decodeURIComponent(window.location.pathname);
-    const page = path === '/' ? 'view1' : path.slice(1);
+    const page = path === '/' ? 'a empresa' : path.slice(1);
     this._loadPage(page);
     // Any other info you might want to extract from the path (like page type),
     // you can do here.
@@ -366,22 +367,19 @@ class MyApp extends LitElement {
 
   _loadPage(page) {
     switch(page) {
-      case 'view1':
+      case 'a empresa':
         import('../components/my-view1.js').then((module) => {
           // Put code in here that you want to run every time when
           // navigating to view1 after my-view1.js is loaded.
         });
         break;
-      case 'view2':
+      case 'especialidades':
         import('../components/my-view2.js');
         break;
-      case 'view3':
+      case 'diferenciais':
         import('../components/my-view3.js');
         break;
-      case 'view4':
-        import('../components/my-view4.js');
-        break;
-      case 'view5':
+      case 'contato':
         import('../components/my-view5.js');
         break;
       default:

@@ -83,7 +83,7 @@ class ScrollButton extends PolymerElement {
 
   scrollUp(){
     window.scrollTo({ 
-      top: 400, // could be negative value
+      top: 300, // could be negative value
       left: 0, 
       behavior: 'smooth' 
     });

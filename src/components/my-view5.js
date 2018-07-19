@@ -14,18 +14,56 @@ import { PageViewElement } from './page-view-element.js';
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
 
-class MyView404 extends PageViewElement {
+
+import  './contact-form3.js';
+import  './map-element.js';
+
+class MyView5 extends PageViewElement {
   _render(props) {
     return html`
       ${SharedStyles}
+      <style>
+
+      @media (min-width: 950px) {
+         .contact-section{
+          display:grid;
+          grid-template-columns: [leftCol] 2fr [rightCol] 2fr;
+        }
+      }
+
+      map-element{
+        
+        width:100%;
+        
+       
+      }
+      </style>
+
       <section>
-        <h2>Oops! You hit a 404</h2>
-        <p>The page you're looking for doesn't seem to exist. Head back
-           <a href="/">home</a> and try again?
+        <h2>Entre em contato</h2>
+        <p>
+
+        Estaremos encantados de discutir sobre a situaçao da sua organizaçao, e onde podemos agregar valor.</br>
+        Por favor, entre em contato conosco via os detalhes abaixo, ou envie sua solicitaçao:</br></br>
+        
+        Email: xxxx@o10consultoria.com.br </br>
+        Tlf: +55 31 3653 8089 </br>
+        LinkedIn: Connect Here </br>
+        Endereço: Rua Desembargador Jorge Fontana, 428,- 11º Andar - Sala 1102 - Belvedere<br>
+         Belo Horizonte - 30320 670<br>
+         Minas Gerais | Brasil<br>
         </p>
       </section>
+
+      <section class="contact-section">
+        <contact-form3></contact-form3>
+        <map-element></map-element>
+      </section>
+
+      
+
     `
   }
 }
 
-window.customElements.define('my-view404', MyView404);
+window.customElements.define('my-view5', MyView5);

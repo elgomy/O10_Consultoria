@@ -20,9 +20,13 @@
     "test:regenerate_screenshots": "mocha test/integration/screenshots-baseline/regenerate.js --timeout=15000"
   },
   "dependencies": {
+    "@em-polymer/google-map": "^3.0.0-pre.5",
     "@material/layout-grid": "^0.34.0",
     "@material/mwc-button": "^0.1.2",
     "@material/mwc-fab": "^0.1.2",
+    "@material/mwc-formfield": "^0.1.2",
+    "@material/mwc-textfield": "file:material-components-web-components/packages/textfield",
+    "@material/textfield": "^0.37.0",
     "@polymer/app-layout": "^3.0.0-pre.19",
     "@polymer/lit-element": "^0.5.2",
     "@webcomponents/webcomponentsjs": "^2.0.0",
